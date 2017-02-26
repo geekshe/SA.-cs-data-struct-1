@@ -1,0 +1,80 @@
+Part 1: Discussion Questions
+
+################################################################################
+Runtime
+
+1. When calculating the Big O notation for a particular algorithm, it’s necessary to consider the length of time it takes for the algorithm to run as the algorithm’s workload approaches infinity. You can think of the workload as the number of tasks required to complete a job. What determines the workload of figuring out whether your box of animal crackers contains an elephant?
+
+When testing your box of animal crackers to see if there is an elephant in the box, you must iterate through every animal in the box, checking each one to see if it is an elephant or not. If you find an elephant, you stop. As you add more crackers to the box, the number of crackers to evaluate increases linearly, making this an O(n) process. In the true case, you could concievably luck out and find your elephant with the first cracker, but we assume the worst case of not finding your elephant until the last cracker. At any rate, in the false case, you would have to look at every cracker before you could conclude that there are no elephants in the box.
+
+
+2. Order the following runtimes in descending order of efficiency (that is, fastest runtimes first, slowest last) as n approaches infinity:
+
+O(1)
+O(log n)
+O(n)
+O(n log n)
+O(n2)
+O(2n)
+
+################################################################################
+Stacks and Queues
+
+1. In the following cases, would a stack or queue be a more appropriate data structure?
+
+    1. The process of loading and unloading pallets onto a flatbed truck
+
+    This is a stack. Last one on is the first one off.
+
+    2. Putting bottle caps on bottles of beer as they roll down an assembly line
+
+    This is a queue. The first one to reach you is the first one you address.
+
+    3. Calculating the solution to this mathematical expression: 2 + (7 * 4) - (3 / 2)
+
+    What an interesting question! I would have to say neither, because the order of operations (PEMDAS) means you may have to reach into the middle of the equation to handle things in the right order. In this case, we would tackle the parentheses first, then the multiplication/division, and finally the addition/subtraction.
+
+
+2. Describe two more situations where a queue would be an appropriate data structure.
+
+In a coffee shop, the first person in line gets served first.
+
+When queuing up print jobs, the first one to click Print gets her document printed first.
+
+3. Describe two more situations where a stack would be an appropriate data structure.
+
+When eating pancakes, the pancake on the top of the stack is the one that was cooked most recently.
+
+If you choose to collate your print job, the last page is printed first so your pages start with page 1 when you pick them up from the printer.
+
+
+################################################################################
+Linked Lists
+
+1. Given the linked list below, which are the nodes? What is the data for each node? Where is the head? Where is the tail? (Please be as specific as possible — exactly which parts of the diagram correspond to each part? Arrows? Boxes? Text?)
+
+Nodes are containers for data. In a linked list, they need to have at minimum a data value and a pointer to the next node in the linked list. In this case, there are three nodes. (The first box is the container for the linked list.) The "data" field is the first field in each box. The data is "Apple", "Berry", and "Cherry". The head is a key attribute of the linked list container. In this case, the head points to the "Apple" node. The tail is the "Cherry" node. It is the node where the next attribute points to None. The arrows show the direction of the list, and how the next assignment works. For the "Apple" node, the arrow shows how the next attribute points to "Berry". For the "Berry" node, the next value points to "Cherry". And finally, for the "Cherry" node, the next value points to None. That indicates it is the last item in the list.
+
+2. What’s the difference between doubly- and singly-linked lists?
+
+A singly-linked list goes in only one direction. For example, to find the "Cherry" node in this example, we could only get there by traversin through "Apple" and "Berry" first. A doubly-linked list goes in either direction. To get to "Cherry", we could start at the end of the list and go backward to find it right away. A doubly-linked list must contain both a previous and a next attribute to handle going backward in the list.
+
+3. Why is it faster to append to a linked list if we keep track of the tail as an attribute?
+
+Append adds a new node to the end of the list. In a singly-linked list, that means traversing the entire list to find the end before you can add the new node. That's an O(n) operation. If you keep track of the tail of the list, you can append a new node to the end of the list without traversal. That makes it an O(1) operation. It's much faster.
+
+################################################################################
+Trees
+
+1. Given the tree above, in what order would a Breadth First Search (BFS) algorithm visit each node until finding burritos (starting at food)? Just list the order of nodes visited; no need to recreate the state of the algorithm data in your answer.
+
+Using the algorithm from lecture where we popped the first item from the list, we would search one tier at a time going from left to right. So we would evaluate:
+Italian, Indian, Mexican, lasagna, pizza, tikka masala, saag, burritos
+
+2. Given the tree above, in what order would a Depth First Search (DFS) algorithm visit each node until finding Chicago-style (starting at food)? Just list the order of nodes visited; no need to recreate the state of the algorithm data in your answer.
+
+Using the algorithm from lecture where we popped the item from the end of the list, we would search one full branch at a time going from right to left. So we would evaluate:
+Mexican, enchiladas, tacos, burritos, Indian, saag, tikka masala, Italian, pizza, Sicilian, New York-style, Chicago-style
+
+3. How is a binary search tree different from other trees?
+In binary search tree, each parent has at most two children. If a tree is well balanced, the search runtime is O(log n). A balanced tree tends to have an item from about the middle of the list as its root. That way each step cuts your search roughly in half.
